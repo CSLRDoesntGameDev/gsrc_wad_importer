@@ -30,9 +30,10 @@ func read_wad(file : String):
 	prints("Entry Count:", entry_count)
 	prints("Table Offset:", table_offset)
 	prints("File Size:", data.size())
-	
-	read_directory(file)
-	create_resources()
+
+	if header_title == "WAD3":
+		read_directory(file)
+		create_resources()
 
 func read_directory(file_name : String):
 	for entry_index in entry_count:
